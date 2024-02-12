@@ -51,6 +51,15 @@ static void updateDiscordPresence()
         discordPresence.matchSecret = "xyzzy";
         discordPresence.joinSecret = "join";
         discordPresence.spectateSecret = "look";
+        /*
+        Buttons can only be used when the secrets are not defined!
+
+        discordPresence.button[0].label = "Discord";
+        discordPresence.button[0].url = "https://discord.com"
+
+        discordPresence.button[1].label = "Buttons";
+        discordPresence.button[1].url = "https://discord.com"
+        */
         discordPresence.instance = 0;
         Discord_UpdatePresence(&discordPresence);
     }
