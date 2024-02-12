@@ -158,20 +158,24 @@ size_t JsonWriteRichPresenceObj(char* dest,
                     WriteOptionalString(writer, "spectate", presence->spectateSecret);
                 }
 
-                if ((presence->buttons[0].label && presence->buttons[0].url) ||
-                    (presence->buttons[1].label && presence->buttons[1].url)) {
-                    WriteArray buttons(writer, "buttons");
+                if (((presence->button[0].label && presence->button[0].label[0]) && 
+                    (presence->button[0].url && presence->button[0].url[0])) ||
+                    ((presence->button[1].label && presence->button[1].label[0]) && 
+                    (presence->button[1].url && presence->button[1].url[0]))) {
+                    WriteArray buttons(writer, "button");
 
-                    if ((presence->buttons[0].label && presence->buttons[0].url)) {
+                    if ((presence->button[0].label && presence->button[0].label[0]) && 
+                        (presence->button[0].url && presence->button[0].url[0])) {
                         WriteObject button(writer);
-                        WriteOptionalString(writer, "label", presence->buttons[0].label);
-                        WriteOptionalString(writer, "url", presence->buttons[0].url);
+                        WriteOptionalString(writer, "label", presence->button[0].label);
+                        WriteOptionalString(writer, "url", presence->button[0].url);
                     }
 
-                     if ((presence->buttons[1].label && presence->buttons[1].url)) {
+                     if ((presence->button[1].label && presence->button[1].label[0]) && 
+                        (presence->button[1].url && presence->button[1].url[0])) {
                         WriteObject button(writer);
-                        WriteOptionalString(writer, "label", presence->buttons[1].label);
-                        WriteOptionalString(writer, "url", presence->buttons[1].url);
+                        WriteOptionalString(writer, "label", presence->button[1].label);
+                        WriteOptionalString(writer, "url", presence->button[1].url);
                     }
                 }
 
