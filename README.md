@@ -1,5 +1,11 @@
 # Discord RPC
 
+## Fork features
+
+Added buttons support to the library, should be pretty straightforward to use. Enjoy :)
+
+---
+
 ## Deprecation Notice
 
 This library has been deprecated in favor of Discord's GameSDK. [Learn more here](https://discordapp.com/developers/docs/game-sdk/sdk-starter-guide)
